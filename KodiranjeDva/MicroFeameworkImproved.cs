@@ -50,7 +50,7 @@ namespace KodiranjeDva
         }
 
         [Test]
-
+        public void TestDragAndDrop()
         {
             this.NavigateTo("https://formy-project.herokuapp.com/dragdrop");
             IWebElement target = this.FindElement(By.Id("box"));
@@ -91,9 +91,11 @@ namespace KodiranjeDva
         }
 
         [Test]
+        [Test, Category("Anotacija")] //Promjer NUnit anotacija
+        [MaxTime(9999)]
+        [Ignore("Ignore")]
         public void TestWaitForElement()
         {
-           
             this.NavigateTo("http://test.qa.rs");
             var findBy = By.XPath("//a[@href = '/new']");
             var wait = new WebDriverWait(this.Driver, TimeSpan.FromSeconds(20));
