@@ -14,7 +14,7 @@ namespace KodiranjeDva
 {
     class MicroFeameworkImproved
     {
-        [Test, Category("mojaAnotacija")] //Promjer NUnit anotacije pomocu koje mozemo da grupisemo testove
+        [Test]
         public void TestRightClickContextMenu()
         {
             this.NavigateTo("https://www.cssscript.com/demo/lightweight-context-menu-library-class2context-js/");
@@ -50,9 +50,7 @@ namespace KodiranjeDva
         }
 
         [Test]
-        [Category("Cas32")]
-        [MaxTime(60000)]
-        public void TestDragAndDrop()
+
         {
             this.NavigateTo("https://formy-project.herokuapp.com/dragdrop");
             IWebElement target = this.FindElement(By.Id("box"));
@@ -105,46 +103,7 @@ namespace KodiranjeDva
             DoWait(2);
         }
 
-        [Test]
        
-        public void Cas32_Aleksandar()
-        {
-            this.NavigateTo("https://www.seleniumeasy.com/test/window-popup-modal-demo.html");
-            IWebElement button1 = this.FindElement(By.XPath("//div[@class='two-windows']/a"));
-            //IWebElement button1 = this.FindElement(By.XPath("//a[contains(text(),'Follow Twitter & Facebook')]"));
-            button1.Click();
-            DoWait(1);
-            var mainWindow = this.Driver.CurrentWindowHandle;
-
-            foreach (var windowHandle in this.Driver.WindowHandles)
-            {
-                this.Driver.SwitchTo().Window(windowHandle);
-                string title = this.Driver.Title;
-                if (title.Contains("Twitter"))
-                {
-                    IWebElement username1 = this.FindElement(By.Id("username_or_email"));
-                    username1.SendKeys("mail1@gmail.com");
-                    DoWait(1);
-                    IWebElement password1 = this.FindElement(By.XPath("//input[@id='password']"));
-                    password1.SendKeys("sifra1");
-                    DoWait(1);
-                    this.Driver.Close();
-                }
-                if (title.Contains("Facebook"))
-                {
-                    IWebElement username2 = this.FindElement(By.CssSelector("#email"));
-                    username2.SendKeys("mail2@gmail.com");
-                    DoWait(1);
-                    IWebElement password2 = this.FindElement(By.CssSelector("#pass"));
-                    password2.SendKeys("sifra2");
-                    DoWait(1);
-                    this.Driver.Close();
-                }
-            }
-            this.Driver.SwitchTo().Window(mainWindow);
-        }
-
-
         [SetUp]
         public void SetUpTests()
         {
