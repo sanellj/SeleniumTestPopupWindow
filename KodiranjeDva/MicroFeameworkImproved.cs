@@ -54,7 +54,6 @@ namespace KodiranjeDva
         [MaxTime(60000)]
         public void TestDragAndDrop()
         {
-            // Doesn't work
             this.NavigateTo("https://formy-project.herokuapp.com/dragdrop");
             IWebElement target = this.FindElement(By.Id("box"));
             IWebElement drop1 = this.FindElement(By.Id("image"));
