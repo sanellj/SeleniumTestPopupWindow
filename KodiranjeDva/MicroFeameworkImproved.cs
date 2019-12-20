@@ -14,7 +14,7 @@ namespace KodiranjeDva
 {
     class MicroFeameworkImproved
     {
-        [Test]
+        [Test, Category("mojaAnotacija")] //Promjer NUnit anotacije pomocu koje mozemo da grupisemo testove
         public void TestRightClickContextMenu()
         {
             this.NavigateTo("https://www.cssscript.com/demo/lightweight-context-menu-library-class2context-js/");
